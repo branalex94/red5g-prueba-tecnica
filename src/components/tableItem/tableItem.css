@@ -1,0 +1,80 @@
+.table-item__buttons-container {
+	display: flex;
+	gap: .5rem;
+}
+
+.table-item__new-button {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	border: none;
+	background-color: var(--lime-green);
+	color: var(--white);
+	font-size: .6rem;
+	font-weight: 700;
+	padding: .25rem .75rem;
+	gap: .75rem;
+	border-radius: 15px;
+}
+
+.table-item__actions-button {
+	display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: none;
+  background-color: var(--primary-color);
+  padding: 0.5rem;
+  width: 100%;
+  border-radius: 15px;
+  color: var(--white);
+  transition: background-color .5s ease;
+	position: relative;
+  font-size: .75rem;
+}
+
+.table-item__actions-button:hover {
+  background-color: var(--white);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  cursor: pointer;
+}
+
+.table-item__action-arrow {
+	flex-shrink: 1;
+}
+
+.table-item__actions-options {
+	display:  none;
+	position: absolute;
+	top: -4rem;
+	left: 0;
+	background-color: var(--white);
+	width: 100%;
+	text-align: left;
+	border: 1px solid var(--light-gray);
+	opacity: 0;
+	transition: opacity .5s ease;
+}
+
+.table-item__actions-options button {
+	border: none;
+	background-color: transparent;
+	width: 100%;
+	text-align: left;
+	padding: .25rem;
+}
+
+.table-item__actions-options button:hover {
+	background-color: var(--light-gray);
+}
+
+.table-item__actions-options button + button {
+	margin-top: .5rem;
+}
+
+.active-option {
+	display: flex;
+	opacity: 1;
+	align-items: flex-start;
+	flex-direction: column;
+}

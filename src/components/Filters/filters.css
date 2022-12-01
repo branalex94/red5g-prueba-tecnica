@@ -1,0 +1,38 @@
+.filters {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin:  0;
+}
+
+.filters__item {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	justify-content: center;
+	padding: .5rem 0;
+	width: 100%;
+	cursor: pointer;
+	transition: opacity .5s ease;
+}
+
+.filters__item:hover {
+	opacity: .7;
+}
+
+.filters__item--active {
+	color: var(--primary-color);
+	border-bottom: 3px solid var(--primary-color);
+	font-weight: 700;
+}
+
+@media(min-width: 768px) {
+	.filters {
+		flex-direction: row;
+	}
+
+	.filters__item {
+		padding: 1rem 0;
+	}
+}
