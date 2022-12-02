@@ -6,11 +6,73 @@ import "./productsTable.css";
 export default function ProductsTable({ products, amountPerPage, page }) {
   const [defaultChecked, setDefaultChecked] = useState(false);
   const [paginatedProducts, setPaginatedProducts] = useState(products);
+  const [orientation, setOrientation] = useState("DESC");
+  const [sortedArr, setSortedArr] = useState(paginatedProducts);
   const offset = (page - 1) * amountPerPage;
+
+  const sortByNum = (arr, ori, col) => {
+    if (ori === "DESC") {
+      const sortedArr = arr.sort((a, b) => {
+        if (Number(a[col]) > Number(b[col])) {
+          return -1;
+        } else if (Number(a[col]) < Number(b[col])) {
+          return 1;
+        } else return 0;
+      });
+      return sortedArr;
+    } else {
+      const sortedArr = arr.sort((a, b) => {
+        if (Number(a[col]) < Number(b[col])) {
+          return -1;
+        } else if (Number(a[col]) > Number(b[col])) {
+          return 1;
+        } else return 0;
+      });
+      return sortedArr;
+    }
+  };
+
+  const handleSortNumber = (col) => {
+    const newArr = sortByNum(paginatedProducts, orientation, col);
+    setSortedArr(newArr);
+    if (orientation === "ASC") setOrientation("DESC");
+    else setOrientation("ASC");
+  };
+
+  const sortByString = (arr, ori, col) => {
+    if (ori === "DESC") {
+      const sortedArr = arr.sort((a, b) => {
+        if (a[col] > b[col]) {
+          return -1;
+        } else if (a[col] < b[col]) {
+          return 1;
+        } else return 0;
+      });
+      return sortedArr;
+    } else {
+      const sortedArr = arr.sort((a, b) => {
+        if (a[col] < b[col]) {
+          return -1;
+        } else if (a[col] > b[col]) {
+          return 1;
+        } else return 0;
+      });
+      return sortedArr;
+    }
+  };
+
+  const handleSortString = (col) => {
+    const newArr = sortByString(paginatedProducts, orientation, col);
+    setSortedArr(newArr);
+    if (orientation === "ASC") setOrientation("DESC");
+    else setOrientation("ASC");
+  };
 
   useEffect(() => {
     setPaginatedProducts(products.slice(offset, offset + amountPerPage));
   }, [products, amountPerPage, offset]);
+
+  useEffect(() => {}, [sortedArr]);
 
   if (paginatedProducts.length < 1) {
     return (
@@ -32,14 +94,32 @@ export default function ProductsTable({ products, amountPerPage, page }) {
                 defaultChecked={defaultChecked}
               />
             </th>
-            <TableHeader text="ID" />
-            <TableHeader text="Placa" />
-            <TableHeader text="Marca" />
-            <TableHeader text="Modelo" />
-            <TableHeader text="Kilometraje" />
-            <TableHeader text="Transmisión" />
-            <TableHeader text="Tipo" />
-            <TableHeader text="Precio de compra" />
+            <TableHeader text="ID" onClick={() => handleSortNumber("id")} />
+            <TableHeader
+              text="Placa"
+              onClick={() => handleSortString("placa")}
+            />
+            <TableHeader
+              text="Marca"
+              onClick={() => handleSortString("marca")}
+            />
+            <TableHeader
+              text="Modelo"
+              onClick={() => handleSortString("modelo")}
+            />
+            <TableHeader
+              text="Kilometraje"
+              onClick={() => handleSortNumber("kilometraje")}
+            />
+            <TableHeader
+              text="Transmisión"
+              onClick={() => handleSortString("transmision")}
+            />
+            <TableHeader text="Tipo" onClick={() => handleSortString("tipo")} />
+            <TableHeader
+              text="Precio de compra"
+              onClick={() => handleSortNumber("precio")}
+            />
             <TableHeader text="Proviniencia" />
           </tr>
         </thead>
