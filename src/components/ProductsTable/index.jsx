@@ -64,7 +64,7 @@ export default function ProductsTable({ products, amountPerPage, page }) {
               <i className="fa-solid fa-up-down"></i>
             </th>
             <th>
-              Provinencia
+              Proviniencia
               <i className="fa-solid fa-up-down"></i>
             </th>
           </tr>
