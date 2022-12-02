@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import TableHeader from "../TableHeader";
 import TableItem from "../TableItem";
 import "./productsTable.css";
 
@@ -31,42 +32,15 @@ export default function ProductsTable({ products, amountPerPage, page }) {
                 defaultChecked={defaultChecked}
               />
             </th>
-            <th>
-              ID
-              <i className="fa-solid fa-up-down"></i>
-            </th>
-            <th>
-              Placa
-              <i className="fa-solid fa-up-down"></i>
-            </th>
-            <th>
-              Marca
-              <i className="fa-solid fa-up-down"></i>
-            </th>
-            <th>
-              Modelo
-              <i className="fa-solid fa-up-down"></i>
-            </th>
-            <th>
-              Kilometraje
-              <i className="fa-solid fa-up-down"></i>
-            </th>
-            <th>
-              Transmisión
-              <i className="fa-solid fa-up-down"></i>
-            </th>
-            <th>
-              Tipo
-              <i className="fa-solid fa-up-down"></i>
-            </th>
-            <th>
-              Precio de compra
-              <i className="fa-solid fa-up-down"></i>
-            </th>
-            <th>
-              Proviniencia
-              <i className="fa-solid fa-up-down"></i>
-            </th>
+            <TableHeader text="ID" />
+            <TableHeader text="Placa" />
+            <TableHeader text="Marca" />
+            <TableHeader text="Modelo" />
+            <TableHeader text="Kilometraje" />
+            <TableHeader text="Transmisión" />
+            <TableHeader text="Tipo" />
+            <TableHeader text="Precio de compra" />
+            <TableHeader text="Proviniencia" />
           </tr>
         </thead>
         <tbody className="table__body">
