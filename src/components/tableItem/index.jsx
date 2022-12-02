@@ -1,15 +1,27 @@
 import { useState } from "react";
 import "./tableItem.css";
 
-export default function TableItem({ item }) {
+export default function TableItem({ item, headerCheck }) {
   const [isActionsActive, setIsActionsActive] = useState(false);
+  const [isChecked, setIsChecked] = useState(item.checked)
+
   const showActionOptions = () => {
     setIsActionsActive(!isActionsActive);
   }
+
+  const handleChange = () => {
+    setIsChecked(!isChecked);
+  }
+
 	return (
 		<tr>
       <td>
-        <input type="checkbox" className="table-item__checkbox" checked={item.checked} />
+        <input 
+          type="checkbox" 
+          className="table-item__checkbox" 
+          checked={isChecked}
+          onChange={handleChange}
+        />
       </td>
       <td>{item.id}</td>
       <td>{item.placa}</td>

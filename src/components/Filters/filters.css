@@ -14,14 +14,10 @@
 	padding: .5rem 0;
 	width: 100%;
 	cursor: pointer;
-	transition: opacity .5s ease;
+	transition: all .25s ease;
 }
 
-.filters__item:hover {
-	opacity: .7;
-}
-
-.filters__item--active {
+.filters__item--active, .filters__item:hover {
 	color: var(--primary-color);
 	border-bottom: 3px solid var(--primary-color);
 	font-weight: 700;

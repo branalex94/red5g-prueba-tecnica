@@ -1,9 +1,12 @@
-import { useState, useEffect } from "react";
-import TableItem from "../tableItem";
+import { useState } from "react";
+import TableItem from "../TableItem";
 import "./productsTable.css";
 
-export default function ProductsTable({ products }) {
-  if(products.length < 1) {
+export default function ProductsTable({ products, sliceResults }) {
+  const [defaultChecked, setDefaultChecked] = useState(false);
+  const paginatedProducts = sliceResults(products);
+
+  if (paginatedProducts.length < 1) {
     return (
       <div className="table-wrapper table-wrapper--empty">
         <p>No existen datos para mostrar</p>
@@ -17,7 +20,11 @@ export default function ProductsTable({ products }) {
         <thead className="table__header">
           <tr>
             <th>
-              <input type="checkbox" className="table__checkbox" />
+              <input
+                type="checkbox"
+                className="table__checkbox"
+                defaultChecked={defaultChecked}
+              />
             </th>
             <th>
               ID
@@ -58,7 +65,9 @@ export default function ProductsTable({ products }) {
           </tr>
         </thead>
         <tbody className="table__body">
-          {products.map(item => <TableItem item={item} />)}
+          {paginatedProducts.map((item) => (
+            <TableItem key={item.id} item={item} />
+          ))}
         </tbody>
       </table>
     </div>

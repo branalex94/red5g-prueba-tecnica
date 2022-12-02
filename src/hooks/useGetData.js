@@ -12,5 +12,5 @@ export function useGetData(data) {
 		}, 2000);
 	}
 
-	return { fetchData, isLoading, products };
+	return { fetchData, isLoading, products, setProducts };
 }
