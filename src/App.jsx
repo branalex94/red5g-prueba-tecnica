@@ -12,7 +12,7 @@ function App() {
   const [page, setPage] = useState(1);
   const [amountPerPage, setAmountPerPage] = useState(10);
   const pages = Math.ceil(products.length / amountPerPage);
-  
+
   return (
     <div className="app-wrapper">
       <Header />
@@ -24,7 +24,6 @@ function App() {
       <SearchFilter
         fetchData={fetchData}
         products={products}
-        setProducts={setProducts}
         pages={pages}
         setAmountPerPage={setAmountPerPage}
         page={page}
