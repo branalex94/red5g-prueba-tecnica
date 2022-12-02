@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TableItem from "../TableItem";
 import "./productsTable.css";
 
-export default function ProductsTable({ products, sliceResults }) {
+export default function ProductsTable({ products, amountPerPage, page }) {
   const [defaultChecked, setDefaultChecked] = useState(false);
-  const paginatedProducts = sliceResults(products);
+  const [paginatedProducts, setPaginatedProducts] = useState(products);
+  const offset = (page - 1) * amountPerPage;
+
+  useEffect(() => {
+    setPaginatedProducts(products.slice(offset, offset + amountPerPage));
+  }, [products, amountPerPage, offset]);
 
   if (paginatedProducts.length < 1) {
     return (

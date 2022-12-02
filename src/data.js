@@ -121,7 +121,7 @@ export const data = [
 		"precio": 40000000,
 	},{
 		"checked": false,
-		"id":"5",
+		"id":"13",
 		"placa": "ABC123",
 		"marca": "Mazda",
 		"modelo": "2",
@@ -131,7 +131,7 @@ export const data = [
 		"precio": 40000000,
 	},{
 		"checked": false,
-		"id":"5",
+		"id":"14",
 		"placa": "ABC123",
 		"marca": "Mazda",
 		"modelo": "2",
@@ -141,7 +141,7 @@ export const data = [
 		"precio": 40000000,
 	},{
 		"checked": false,
-		"id":"5",
+		"id":"15",
 		"placa": "ABC123",
 		"marca": "Mazda",
 		"modelo": "2",
@@ -151,7 +151,7 @@ export const data = [
 		"precio": 40000000,
 	},{
 		"checked": false,
-		"id":"5",
+		"id":"16",
 		"placa": "ABC123",
 		"marca": "Mazda",
 		"modelo": "2",
@@ -161,7 +161,7 @@ export const data = [
 		"precio": 40000000,
 	},{
 		"checked": false,
-		"id":"5",
+		"id":"17",
 		"placa": "ABC123",
 		"marca": "Mazda",
 		"modelo": "2",
@@ -171,7 +171,7 @@ export const data = [
 		"precio": 40000000,
 	},{
 		"checked": false,
-		"id":"5",
+		"id":"18",
 		"placa": "ABC123",
 		"marca": "Mazda",
 		"modelo": "2",
@@ -181,7 +181,7 @@ export const data = [
 		"precio": 40000000,
 	},{
 		"checked": false,
-		"id":"5",
+		"id":"19",
 		"placa": "ABC123",
 		"marca": "Mazda",
 		"modelo": "2",

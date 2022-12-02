@@ -7,13 +7,11 @@ export default function SearchFilter({
   fetchData,
   pages,
   setAmountPerPage,
-  amountPerPage,
   page,
   setPage,
-  indexes,
-  setIndexes,
 }) {
   const [isActionsActive, setIsActionsActive] = useState(false);
+  const isFirstPage = page - 1 === 0;
 
   const showActionOptions = () => {
     setIsActionsActive(!isActionsActive);
@@ -29,18 +27,16 @@ export default function SearchFilter({
   };
 
   const handlePrev = () => {
-    setIndexes((state) => [state[0] - amountPerPage, state[1] - amountPerPage]);
-    setPage(page--);
+    setPage((state) => state - 1);
   };
 
   const handleNext = () => {
-    setIndexes((state) => [state[0] + amountPerPage, state[1] + amountPerPage]);
-    setPage(page++);
+    setPage((state) => state + 1);
   };
 
   const handlePageCounter = (e) => {
     setPage(Number(e.currentTarget.value));
-  }
+  };
 
   return (
     <footer className="footer">
@@ -75,9 +71,10 @@ export default function SearchFilter({
       <div className="footer__filter-controller footer__total-results-filter">
         <button
           className={`foooter__total-results__button ${
-            indexes[0] === 0 ? "foooter__total-results__button--disabled" : ""
+            isFirstPage ? "foooter__total-results__button--disabled" : ""
           }`}
           onClick={handlePrev}
+          disabled={isFirstPage}
         >
           <i className="fa-solid fa-chevron-left"></i>
         </button>
@@ -90,8 +87,16 @@ export default function SearchFilter({
         />
         <span>De </span>
         <span>{pages}</span>
-        <button className="foooter__total-results__button" onClick={handleNext}>
-          <i className="fa-solid fa-chevron-right"></i>
+        <button
+          className="foooter__total-results__button"
+          onClick={handleNext}
+          disabled={page === pages}
+        >
+          <i
+            className={`fa-solid fa-chevron-right ${
+              page === pages ? "foooter__total-results__button--disabled" : ""
+            }`}
+          ></i>
         </button>
       </div>
       {/* page selector end */}

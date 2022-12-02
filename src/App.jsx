@@ -11,20 +11,15 @@ function App() {
   const { isLoading, products, fetchData, setProducts } = useGetData(data);
   const [page, setPage] = useState(1);
   const [amountPerPage, setAmountPerPage] = useState(10);
-  const [indexes, setIndexes] = useState([0, amountPerPage]);
   const pages = Math.ceil(products.length / amountPerPage);
-
-  const sliceResults = (arr) => {
-    return arr.slice(indexes[0], indexes[1]);
-  }
-
+  
   return (
     <div className="app-wrapper">
       <Header />
       <ProductsTable
         products={products}
-        indexes={indexes}
-        sliceResults={sliceResults}
+        amountPerPage={amountPerPage}
+        page={page}
       />
       <SearchFilter
         fetchData={fetchData}
@@ -32,11 +27,8 @@ function App() {
         setProducts={setProducts}
         pages={pages}
         setAmountPerPage={setAmountPerPage}
-        amountPerPage={amountPerPage}
         page={page}
         setPage={setPage}
-        indexes={indexes}
-        setIndexes={setIndexes}
       />
       {isLoading && <LoadingModal />}
     </div>
