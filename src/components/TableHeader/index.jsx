@@ -1,6 +1,6 @@
-export default function TableHeader({ text }) {
+export default function TableHeader({ text, onClick = null }) {
   return (
-    <th>
+    <th onClick={onClick}>
       {text}
       <i className="fa-solid fa-up-down"></i>
     </th>
